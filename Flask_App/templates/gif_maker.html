@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>NOT_GOOGLE</title>
+</head>
+
+<body>
+
+        <form method="post">
+
+            <table width="80%" valign="center" style="margin-left: 10%; margin-right: 10%; margin-top: 10%">
+                <tr>
+                   <td align="center">
+                       <font color="Indigo" ><h4 class="display-4"><b>NOT_Google:</b></h4></font>
+                   </td>
+                </tr>
+           <br>
+
+                <tr>
+                    <td>
+                        <div class="input-group mb-3">
+                        <input type="text" name="text" size='150px' class="form-control" value="{{text}}">
+                        </div>
+                    </td>
+                </tr>
+
+            <br>
+                <tr>
+                   <td align="center">
+                       <input class="btn btn-outline-info" type="submit" value="Go!">
+                   </td>
+                </tr>
+                </table>
+                </form>
+            {% if request.method == "POST" %}
+            <table width="80%" valign="top" style="margin-left: 10%; margin-right: 10%; margin-top: 0%;">
+                <tr>
+                    <td><br>Количество найденных документов: <em>{{docs_len}}<em></td>
+                </tr>
+             <tr align="center">
+                 <td>
+                     <font color="red" size="5px"><br><b>Результаты поиска</b></font>
+                 </td>
+             </tr>
+                {% if output_dict %}
+            <tr align="left">
+                 <td><font color="black" size="3px">
+
+                     <table>
+                     {% for k, v in output_dict.items() %}
+                         <br>
+                         <tr><b>{{k}}</b><br>
+                                {{v}}<br></tr>
+                     {% endfor %}
+                     </table>
+
+                 </font></td>
+                {% endif %}
+                {% if output_line %}
+            <tr align="left">
+                 <td><font color="black" size="3px">
+
+                     <table>
+                         <tr><em>{{output_line}}<em></tr>
+                     </table>
+
+                 </font></td>
+                {% endif %}
+
+                {% endif %}
+             </tr>
+
+        </table>
+
+</body>
+</html>
