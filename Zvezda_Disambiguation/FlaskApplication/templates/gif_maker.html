@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body background="/static/37Es.gif">
+
+        <form method="post">
+
+            <table width="80%" valign="center" style="margin-left: 10%; margin-right: 10%; margin-top: 10%">
+                <tr>
+                   <td align="center">
+                       <font color="white" ><h4 class="display-4">Введите ваше предложение:</h4></font>
+                   </td>
+                </tr>
+           <br>
+
+                <tr>
+                    <td>
+                        <div class="input-group mb-3">
+                        <input type="text" name="text" size='150px' class="form-control" value="{{text}}">
+                        </div>
+                    </td>
+                </tr>
+
+            <br>
+                <tr>
+                   <td align="center">
+                       <input class="btn btn-outline-warning" type="submit" value="Go!">
+                   </td>
+                </tr>
+                </table>
+                </form>
+            {% if request.method == "POST" %}
+            <table width="80%" valign="center" style="margin-left: 10%; margin-right: 10%; margin-top: 10%">
+             <tr align="center">
+
+                 <td>
+                     <font color="#E0FFFF" size="5px"><br><br>{{found}}</font>
+                 </td>
+             </tr>
+            <tr align="center">
+                 <td><font color="#E0FFFF" size="5px">{{meaning}}</font></td>
+                {% endif %}
+             </tr>
+
+        </table>
+
+</body>
+</html>
