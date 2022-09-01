@@ -55,7 +55,7 @@ for dial_id in df.dlg_id.unique():
         if cosine_similarity(ft.get_sentence_vector(text).reshape(1,-1),
                              ft.get_sentence_vector("здравствуйте приветствую добрый день").reshape(1,-1))[0][0] > 0.67:
             df.loc[ind, "insight"] = "greeting"
-            is_greeting = 1 #maybe two or more greetings
+            is_greeting = 1
             
     
     
